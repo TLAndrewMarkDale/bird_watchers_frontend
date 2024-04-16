@@ -1,38 +1,161 @@
+body {
+  background-color: #f0f0f0; /* Light gray background */
+  color: #333333; /* Dark gray text color */
+  font-family: Arial, sans-serif;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  background-color: #223366; /* Dark blue header */
+  color: white;
+  padding: 20px 0;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 0 20px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.bird-icon {
+  width: 30px;
+  margin-right: 10px;
+  animation: bird-animation 2s ease-in-out infinite alternate;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes bird-animation {
+  0%, 5%, 10%, 15% {
+    transform: translateY(10px);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: rotateY(180deg);
   }
+  65%, 80% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.info-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.info-button:hover {
+  color: #be3737; /* Light gray on hover */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.drop-area {
+  border: 2px dashed #7788aa; /* Light blue dashed border */
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.drop-area p {
+  margin: 0;
+}
+
+.drop-area input[type="file"] {
+  display: none;
+}
+
+.uploaded-image {
+  max-width: 100%;
+  max-height: 300px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.classify-button,
+.clear-button {
+  background-color: #4caf50; /* Green for classify button */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+  width: 150px;
+}
+
+.classify-button {
+  margin-right: 5px;
+}
+.clear-button {
+  background-color: #f44336; /* Red for clear button */
+  margin-left: 5px;
+}
+
+.classify-button:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.clear-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.infobox {
+  border-radius: 5px;
+  padding: 20px;
+  width: 50%;
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.infobox-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.infobox-text {
+  font-size: 0.9em;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(4, auto); /* 4 rows */
+  grid-gap: 16px; /* Adjust the gap between images as needed */
+}
+
+.image-item {
+  overflow: hidden; /* Ensure images don't overflow their container */
+}
+
+.image-item img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensure images don't have extra space below */
 }
