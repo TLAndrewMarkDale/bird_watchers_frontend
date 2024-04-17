@@ -13,7 +13,6 @@ header {
   background-color: #223366; /* Dark blue header */
   color: white;
   padding: 20px 0;
-  margin-bottom: 20px;
 }
 
 .header-content {
@@ -77,6 +76,7 @@ header {
   padding: 20px;
   cursor: pointer;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .drop-area p {
