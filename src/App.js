@@ -15,6 +15,7 @@ function Home() {
   const [birdName, setBirdName] = useState(null);
   const [birdFact, setBirdFact] = useState(null);
   const [birdConf, setBirdConf] = useState(null);
+  const [birdSciName, setBirdSciName] = useState(null);
   const [loading, setLoading] = useState(false);
   const ref = React.useRef(null); // Scroll to bottom of page
 
@@ -75,6 +76,7 @@ function Home() {
         setBirdName(data["result"]);
         setBirdFact(data["fact"]);
         setBirdConf(data["confidence"]);
+        setBirdSciName(data["scientific_name"]);
         setLoading(false);
         scroll();
       })
@@ -95,13 +97,13 @@ function Home() {
 
   return (
     // Loading overlay to display while classifying
-    <LoadingOverlay active={loading} spinner={<img
+    <LoadingOverlay active={loading && !classified} spinner={<img
       src={require("./assets/birdwhite.png")} // Link to the Home page
       style={{ width: 100, height: 100 }}
       alt="Bird Icon"
       className="bird-icon"
-    />} className="overlay">
-      <div className="content">
+    />} className="overlay" >
+      <div className="content" id="total_content">
         {selectedImage ? (
           <></>
         ) : (
@@ -209,6 +211,7 @@ function Home() {
               <div className="content">
                 <div className="infobox">
                   <h2 className="infobox-title">Bird Species: {birdName}</h2>
+                  <h2 className="infobox-title">Scientific Name: {birdSciName}</h2>
                   <h2 className="infobox-title">Confidence: {birdConf}</h2>
                   <h2 className="infobox-title">Did you know?</h2>
                   <p className="infobox-text">{birdFact}</p>
@@ -219,6 +222,7 @@ function Home() {
               <div className="content">
                 <div className="infoboxMobile">
                   <h2 className="infobox-title">Bird Species: {birdName}</h2>
+                  <h2 className="infobox-title">Scientific Name: {birdSciName}</h2>
                   <h2 className="infobox-title">Confidence: {birdConf}</h2>
                   <h2 className="infobox-title">Did you know?</h2>
                   <p className="infobox-text">{birdFact}</p>
