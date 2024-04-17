@@ -18,6 +18,7 @@ function Home() {
   const [birdSciName, setBirdSciName] = useState(null);
   const [loading, setLoading] = useState(false);
   const ref = React.useRef(null); // Scroll to bottom of page
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   // Function to handle image upload
   const handleImageUpload = (event) => {
@@ -58,6 +59,7 @@ function Home() {
   // Function to handle image classification
   const handleImageClassify = () => {
     setLoading(true);
+    setButtonDisabled(true);
     fetch(
       "https://beak-detective-backend-d689fdd19e85.herokuapp.com/classify",
       {
@@ -78,6 +80,7 @@ function Home() {
         setBirdConf(data["confidence"]);
         setBirdSciName(data["scientific_name"]);
         setLoading(false);
+        setButtonDisabled(false);
         scroll();
       })
       .catch((error) => console.error(error));
@@ -99,9 +102,10 @@ function Home() {
     // Loading overlay to display while classifying
     <LoadingOverlay active={loading && !classified} spinner={<img
       src={require("./assets/birdwhite.png")} // Link to the Home page
-      style={{ width: 100, height: 100 }}
+      style={{ width: 150, height: 150 }}
       alt="Bird Icon"
       className="bird-icon"
+      text="Classifying..."
     />} className="overlay" >
       <div className="content" id="total_content">
         {selectedImage ? (
@@ -197,10 +201,10 @@ function Home() {
         </MobileView>
         {selectedImage && (
           <div className="buttons">
-            <button className="classify-button" onClick={handleImageClassify}>
+            <button className="classify-button" onClick={handleImageClassify} disabled={buttonDisabled}>
               Classify
             </button>
-            <button className="clear-button" onClick={handleClearInput}>
+            <button className="clear-button" onClick={handleClearInput} disabled={buttonDisabled}>
               Clear
             </button>
           </div>
