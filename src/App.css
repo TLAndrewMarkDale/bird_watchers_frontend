@@ -132,7 +132,14 @@ header {
   border-radius: 5px;
   padding: 20px;
   width: 50%;
-  margin-right: 20px; /* Adjust margin as needed */
+
+}
+
+.infoboxMobile {
+  border-radius: 5px;
+  padding: 20px;
+  width: 90%;
+  margin-bottom: 10px;
 }
 
 .infobox-title {
@@ -140,6 +147,7 @@ header {
   margin-bottom: 10px;
   text-align: center;
 }
+
 
 .infobox-text {
   font-size: 0.9em;
@@ -151,7 +159,15 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
   grid-template-rows: repeat(4, auto); /* 4 rows */
-  grid-gap: 16px; /* Adjust the gap between images as needed */
+  grid-gap: 16px; 
+}
+
+.image-gridMobile{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(6, auto); /* 4 rows */
+  grid-gap: 5px; 
+
 }
 
 .image-item {

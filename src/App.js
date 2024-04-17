@@ -89,20 +89,42 @@ function Home() {
         {selectedImage ? (
           <></>
         ) : (
-          // Information box to display when no image is uploaded
-          <div className="infobox">
-            <h2 className="infobox-title">
-              You've found an interesting bird, but you don't know its species.
-            </h2>
-            <p className="infobox-text">
-              Want to find out what it is? To classify your image, simply drag
-              and drop an image or click on the upload box and select the image
-              of the bird you found. We've built a machine-learning model using
-              525 species of birds. More than likely, you can find the answer
-              you're looking for! Want to know more? Click on the information
-              icon at the top right of the page.
-            </p>
-          </div>
+          <>
+              
+              <BrowserView>
+                <div className="content">
+                  <div className="infobox">
+                    <h2 className="infobox-title">
+                      You've found an interesting bird, but you don't know its species.
+                    </h2>
+                    <p className="infobox-text">
+                      Want to find out what it is? To classify your image, simply drag
+                      and drop an image or click on the upload box and select the image
+                      of the bird you found. We've built a machine-learning model using
+                      525 species of birds. More than likely, you can find the answer
+                      you're looking for! Want to know more? Click on the information
+                      icon at the top right of the page.
+                    </p>
+                  </div>
+                </div>
+              </BrowserView><MobileView>
+                <div className="content">
+                <div className="infoboxMobile">
+                  <h2 className="infobox-title">
+                    You've found an interesting bird, but you don't know its species.
+                  </h2>
+                  <p className="infobox-text">
+                    Want to find out what it is? To classify your image, simply drag
+                    and drop an image or click on the upload box and select the image
+                    of the bird you found. We've built a machine-learning model using
+                    525 species of birds. More than likely, you can find the answer
+                    you're looking for! Want to know more? Click on the information
+                    icon at the top right of the page.
+                  </p>
+                </div>
+              </div>
+              </MobileView></>
+            
         )}
         <BrowserView>
           <div
