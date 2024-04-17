@@ -4,6 +4,9 @@ import "./App.css"; // Import your CSS file for styling
 import About from "./About"; // Import the About component
 import LoadingOverlay from "react-loading-overlay-ts";
 import { BrowserView, MobileView } from "react-device-detect";
+
+
+
 function Home() {
   // Constants to store the selected image, classification status, bird name, bird fact, bird confidence, and loading status
   // Functions to handle image upload, clearing the input, image classification, file drop, and preventing default behavior on file drag over
@@ -37,12 +40,20 @@ function Home() {
     setBirdConf(null);
     setBirdFact(null);
     setBirdName(null);
+    scrollTop();
   };
   // Scrolls to bottom of page to show returned bird information
   const scroll = () => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }, 200);
   };
 
+  const scrollTop = () => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 200);
+  };
   // Function to handle image classification
   const handleImageClassify = () => {
     setLoading(true);
@@ -84,47 +95,56 @@ function Home() {
 
   return (
     // Loading overlay to display while classifying
-    <LoadingOverlay active={loading} spinner text="Classifying">
+    <LoadingOverlay active={loading} spinner={<img
+      src={require("./assets/birdwhite.png")} // Link to the Home page
+      style={{ width: 100, height: 100 }}
+      alt="Bird Icon"
+      className="bird-icon"
+    />} className="overlay">
       <div className="content">
         {selectedImage ? (
           <></>
         ) : (
           <>
-              
-              <BrowserView>
-                <div className="content">
-                  <div className="infobox">
-                    <h2 className="infobox-title">
-                      You've found an interesting bird, but you don't know its species.
-                    </h2>
-                    <p className="infobox-text">
-                      Want to find out what it is? To classify your image, simply drag
-                      and drop an image or click on the upload box and select the image
-                      of the bird you found. We've built a machine-learning model using
-                      525 species of birds. More than likely, you can find the answer
-                      you're looking for! Want to know more? Click on the information
-                      icon at the top right of the page.
-                    </p>
-                  </div>
-                </div>
-              </BrowserView><MobileView>
-                <div className="content">
-                <div className="infoboxMobile">
+            <BrowserView>
+              <div className="content">
+                <div className="infobox">
                   <h2 className="infobox-title">
-                    You've found an interesting bird, but you don't know its species.
+                    You've found an interesting bird, but you don't know its
+                    species.
                   </h2>
                   <p className="infobox-text">
-                    Want to find out what it is? To classify your image, simply drag
-                    and drop an image or click on the upload box and select the image
-                    of the bird you found. We've built a machine-learning model using
-                    525 species of birds. More than likely, you can find the answer
-                    you're looking for! Want to know more? Click on the information
-                    icon at the top right of the page.
+                    Want to find out what it is? To classify your image, simply
+                    drag and drop an image or click on the upload box and select
+                    the image of the bird you found. We've built a
+                    machine-learning model using 525 species of birds. More than
+                    likely, you can find the answer you're looking for! Want to
+                    know more? Click on the information icon at the top right of
+                    the page.
                   </p>
                 </div>
               </div>
-              </MobileView></>
-            
+            </BrowserView>
+            <MobileView>
+              <div className="content">
+                <div className="infoboxMobile">
+                  <h2 className="infobox-title">
+                    You've found an interesting bird, but you don't know its
+                    species.
+                  </h2>
+                  <p className="infobox-text">
+                    Want to find out what it is? To classify your image, simply
+                    drag and drop an image or click on the upload box and select
+                    the image of the bird you found. We've built a
+                    machine-learning model using 525 species of birds. More than
+                    likely, you can find the answer you're looking for! Want to
+                    know more? Click on the information icon at the top right of
+                    the page.
+                  </p>
+                </div>
+              </div>
+            </MobileView>
+          </>
         )}
         <BrowserView>
           <div
@@ -184,25 +204,28 @@ function Home() {
           </div>
         )}
         {classified && (
-          <><BrowserView>
-            <div className="content">
-              <div className="infobox">
-                <h2 className="infobox-title">Bird Species: {birdName}</h2>
-                <h2 className="infobox-title">Confidence: {birdConf}</h2>
-                <h2 className="infobox-title">Did you know?</h2>
-                <p className="infobox-text">{birdFact}</p>
-              </div>
-            </div>
-          </BrowserView><MobileView>
+          <>
+            <BrowserView>
               <div className="content">
-              <div className="infoboxMobile">
-                <h2 className="infobox-title">Bird Species: {birdName}</h2>
-                <h2 className="infobox-title">Confidence: {birdConf}</h2>
-                <h2 className="infobox-title">Did you know?</h2>
-                <p className="infobox-text">{birdFact}</p>
-              </div>
+                <div className="infobox">
+                  <h2 className="infobox-title">Bird Species: {birdName}</h2>
+                  <h2 className="infobox-title">Confidence: {birdConf}</h2>
+                  <h2 className="infobox-title">Did you know?</h2>
+                  <p className="infobox-text">{birdFact}</p>
                 </div>
-              </MobileView></>
+              </div>
+            </BrowserView>
+            <MobileView>
+              <div className="content">
+                <div className="infoboxMobile">
+                  <h2 className="infobox-title">Bird Species: {birdName}</h2>
+                  <h2 className="infobox-title">Confidence: {birdConf}</h2>
+                  <h2 className="infobox-title">Did you know?</h2>
+                  <p className="infobox-text">{birdFact}</p>
+                </div>
+              </div>
+            </MobileView>
+          </>
         )}
         <div ref={ref}></div>
       </div>
