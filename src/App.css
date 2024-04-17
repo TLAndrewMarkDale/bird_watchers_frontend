@@ -1,3 +1,4 @@
+
 body {
   background-color: #f0f0f0; /* Light gray background */
   color: #333333; /* Dark gray text color */
@@ -99,29 +100,32 @@ header {
 
 .classify-button,
 .clear-button {
-  background-color: #4caf50; /* Green for classify button */
+  background-color: #94C973; /* Green for classify button */
   color: white;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
   height: 50px;
   width: 150px;
+  border-style: solid;
 }
 
 .classify-button {
   margin-right: 5px;
+  border-color: #76b947; /* Darker green border */
 }
 .clear-button {
-  background-color: #f44336; /* Red for clear button */
+  background-color: #E7625F; /* Red for clear button */
   margin-left: 5px;
+  border-color: #C85250; /* Darker red border */
 }
 
 .classify-button:hover {
-  background-color: #388e3c; /* Darker green on hover */
+  background-color: #76b947; /* Darker green on hover */
 }
 
 .clear-button:hover {
-  background-color: #d32f2f; /* Darker red on hover */
+  background-color: #C85250; /* Darker red on hover */
 }
 
 .infobox {

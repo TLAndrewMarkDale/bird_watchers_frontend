@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./App.css";
 
+// Function to display the About page
 function About() {
   const images = [
     require("./assets/images_carousel/bittern_1.jpg"),
