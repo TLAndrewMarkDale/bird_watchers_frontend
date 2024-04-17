@@ -185,7 +185,7 @@ function Home() {
                 className="uploaded-image"
               />
             ) : (
-              <p>Click here to upload an image</p>
+              <p unselectable="on">Click here to upload an image</p>
             )}
             <input
               type="file"
@@ -221,9 +221,12 @@ function Home() {
             <MobileView>
               <div className="content">
                 <div className="infoboxMobile">
-                  <h2 className="infobox-title">Bird Species: {birdName}</h2>
-                  <h2 className="infobox-title">Scientific Name: {birdSciName}</h2>
-                  <h2 className="infobox-title">Confidence: {birdConf}</h2>
+                  <h2 className="infobox-title">Bird Species:</h2>
+                  <h2 className="infobox-title">{birdName}</h2>
+                  <h2 className="infobox-title">Scientific Name:</h2>
+                  <h2 className="infobox-title">{birdSciName}</h2>
+                  <h2 className="infobox-title">Confidence:</h2>
+                  <h2 className="infobox-title">{birdConf}</h2>
                   <h2 className="infobox-title">Did you know?</h2>
                   <p className="infobox-text">{birdFact}</p>
                 </div>
