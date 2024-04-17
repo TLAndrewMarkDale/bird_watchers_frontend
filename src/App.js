@@ -184,12 +184,25 @@ function Home() {
           </div>
         )}
         {classified && (
-          <div className="infobox">
-            <h2 className="infobox-title">Bird Species: {birdName}</h2> 
-            <h2 className="infobox-title">Confidence: {birdConf}</h2>
-            <h2 className="infobox-title">Did you know?</h2>
-            <p className="infobox-text">{birdFact}</p>
-          </div>
+          <><BrowserView>
+            <div className="content">
+              <div className="infobox">
+                <h2 className="infobox-title">Bird Species: {birdName}</h2>
+                <h2 className="infobox-title">Confidence: {birdConf}</h2>
+                <h2 className="infobox-title">Did you know?</h2>
+                <p className="infobox-text">{birdFact}</p>
+              </div>
+            </div>
+          </BrowserView><MobileView>
+              <div className="content">
+              <div className="infoboxMobile">
+                <h2 className="infobox-title">Bird Species: {birdName}</h2>
+                <h2 className="infobox-title">Confidence: {birdConf}</h2>
+                <h2 className="infobox-title">Did you know?</h2>
+                <p className="infobox-text">{birdFact}</p>
+              </div>
+                </div>
+              </MobileView></>
         )}
         <div ref={ref}></div>
       </div>

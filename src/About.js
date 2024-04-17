@@ -69,7 +69,7 @@ function About() {
       <MobileView>
         <div className="content">
           <div className="infoboxMobile">
-            <h2 className="infobox-title">About Page</h2>
+            <h2 className="infobox-title">About</h2>
             <p className="infobox-text">
               This website was created to help amateur birdwatchers identify the
               species of birds they find. The machine-learning model used in
