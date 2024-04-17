@@ -111,7 +111,6 @@ function Home() {
             <BrowserView>
               <div className="content">
                 <div className="infobox">
-                  <h1 style={{marginBottom: "20px"}}> </h1>
                   <h2 className="infobox-title">
                     You've found an interesting bird, but you don't know its
                     species.
