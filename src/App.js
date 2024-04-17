@@ -185,7 +185,7 @@ function Home() {
                 className="uploaded-image"
               />
             ) : (
-              <p unselectable="on">Click here to upload an image</p>
+              <p className="not-selectable">Click here to upload an image</p>
             )}
             <input
               type="file"
